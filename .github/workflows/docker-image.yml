@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker image build \
+      run: docker image build -f  /Users/Ismail\ AIT\ ZAID/Documents/Ismail\ AIT\ ZAID/CTD\ Consulting/\ ecslast/Dockerfile   \
         --tag $DOCKER_IMAGE:latest \
         .
     - name: Configure AWS credentials
