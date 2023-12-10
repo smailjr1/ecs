@@ -1,30 +1,35 @@
 {
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "inferenceAccelerators": [],
-    "containerDefinitions": [
+  "requiresCompatibilities": ["FARGATE"],
+  "inferenceAccelerators": [],
+  "containerDefinitions": [
+    {
+      "name": "site",
+      "image": "200268818177.dkr.ecr.eu-west-1.amazonaws.com/github-action-ecr:bf775aa4b6bf016a254ba6372871749b40855f5f",
+      "essential": true,
+      "portMappings": [
         {
-            "name": "site",
-            "image": "",
-            "resourceRequirements": null,
-            "essential": true,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80,
-                    "protocol": "tcp"
-                }
-                
-            ]
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
         }
-    ],
-    "volumes": [],
-    "networkMode": "awsvpc",
-    "memory": "512",
-    "cpu": "256",
-    "executionRoleArn": "arn:aws:iam::200268818177:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
-    "family": "github-actions-ecr",
-    "taskRoleArn": "",
-    "placementConstraints": []
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "your-log-group",
+          "awslogs-region": "your-region",
+          "awslogs-stream-prefix": "site"
+        }
+      }
+      // Add other container configuration as needed
+    }
+  ],
+  "volumes": [],
+  "networkMode": "awsvpc",
+  "memory": "512",
+  "cpu": "256",
+  "executionRoleArn": "arn:aws:iam::200268818177:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+  "family": "github-actions-ecr",
+  "taskRoleArn": "",
+  "placementConstraints": []
 }
