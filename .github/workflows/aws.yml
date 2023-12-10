@@ -26,16 +26,11 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
-    - name: Sed
-      run: |
-        cd src
-        sed -i 's/{{ACCOUNT_ID}}/${{ secrets.ACCOUNT_ID }}/' task-definition.json
-
     - name: Render Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: duck/task-definition.json
+        task-definition: task-definition.json
         container-name: site
         image: ${{ steps.build-image.outputs.image }}
 
