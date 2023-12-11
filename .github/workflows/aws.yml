@@ -96,7 +96,9 @@ jobs:
       with:
           task-definition: taskdefinition.json
           container-name: site
-          image: ${{ steps.check_files.outputs.**image** }}
+          #image: ${{ steps.check_files.outputs.**image** }}
+          image: ${{ steps.build-image.outputs.image }}
+
           
     - name: updating task-definition file
       run: cat ${{ steps.demo.outputs.task-definition }} > taskdefinition.json
