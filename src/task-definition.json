@@ -14,11 +14,11 @@
             "logDriver": "awslogs",
             "options": { 
                "awslogs-group" : "/ecs/fargate-task-definition",
-               "awslogs-region": "us-east-1",
+               "awslogs-region": "eu-west-1",
                "awslogs-stream-prefix": "ecs"
             }
          },
-         "name": "sample-fargate-app",
+         "name": "site",
          "portMappings": [ 
             { 
                "containerPort": 80,
