@@ -30,6 +30,6 @@
   "cpu": "256",
   "executionRoleArn": "arn:aws:iam::200268818177:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
   "family": "github-actions-ecr",
-  "taskRoleArn": "",
+  "taskRoleArn": "arn:aws:iam::200268818177:role/github-action-ecr-ecs-task-execution-role",
   "placementConstraints": []
 }
