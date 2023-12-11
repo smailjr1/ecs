@@ -85,20 +85,10 @@ jobs:
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
-
-    - name: Download task definition
-      run: |
-          aws ecs describe-task-definition --task-definition task_definition --query taskDefinition > taskdefinition.json
-
-    - name: new image in ECS taskdefinition
-      id: demo
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-          task-definition: taskdefinition.json
-          container-name: site
-          #image: ${{ steps.check_files.outputs.**image** }}
-          image: ${{ steps.build-image.outputs.image }}
-
-          
-    - name: updating task-definition file
-      run: cat ${{ steps.demo.outputs.task-definition }} > taskdefinition.json
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: ${{ env.ECS_SERVICE }}
+        cluster: ${{ env.ECS_CLUSTER }}
+        wait-for-service-stability: true
