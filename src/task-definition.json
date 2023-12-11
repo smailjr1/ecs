@@ -6,7 +6,7 @@
     "containerDefinitions": [
         {
             "name": "site",
-            "image": "200268818177.dkr.ecr.eu-west-1.amazonaws.com/github-action-ecr:77c6215ff9acd25e947c11591cd32b09cb5ad924",
+            "image": "",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [
