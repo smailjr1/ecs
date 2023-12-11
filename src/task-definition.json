@@ -17,7 +17,7 @@
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "your-log-group",
-          "awslogs-region": "your-region",
+          "awslogs-region": "eu-west-1",
           "awslogs-stream-prefix": "site"
         }
       }
