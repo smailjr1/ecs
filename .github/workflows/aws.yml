@@ -70,7 +70,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
-          cd duck
+          cd src
           docker image build \
             --tag $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:latest \
             --tag $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG \
