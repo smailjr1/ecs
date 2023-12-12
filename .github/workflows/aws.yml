@@ -36,7 +36,7 @@ env:
   ECS_SERVICE: github-action-ecr                     # set this to your Amazon ECS service name
   ECS_CLUSTER: github-action-ecr                     # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: src/task-definition.json # set this to the path to your Amazon ECS task definition
-  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+  ECR_REGISTRY: 200268818177.dkr.ecr.eu-west-1.amazonaws.com/github-action-ecr
   IMAGE_TAG: ${{ github.sha }}                                            # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: site          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
