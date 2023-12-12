@@ -105,5 +105,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: github-actions-ecr
-        cluster: github-actions-ecr
+        cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
